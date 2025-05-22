@@ -1,0 +1,12 @@
+# IDE
+*.vs/
+*.idea/
+
+# Dataset
+data/
+
+*.ipynb_checkpoints/
+*__pycache__/
+
+# Virtual environment
+venv/
