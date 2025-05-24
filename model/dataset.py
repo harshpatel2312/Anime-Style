@@ -14,8 +14,8 @@ class AnimeStyleDataset(Dataset):
                             for file in os.listdir(root_dir) if file.lower().endswith((".png", ".jpeg", "jpg"))]
 
         self.transform = transforms.Compose([
-            transforms.Resize(256),
-            transforms.Lambda(lambda img: transforms.functional.crop(img, top=0, left=0, height=256, width=256)),
+            transforms.Resize((512, 512)),
+            #transforms.Lambda(lambda img: transforms.functional.crop(img, top=0, left=0, height=256, width=256)),
             transforms.ToTensor(),
             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) # Normalize to [-1, 1]
         ])
