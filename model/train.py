@@ -61,7 +61,7 @@ criterion_l1 = nn.L1Loss().to(device)
 
 # ========== OPTIMIZERS ==========
 optimizer_G = torch.optim.Adam(G.parameters(), lr=lr, betas=(0.5, 0.999))
-optimizer_D = torch.optim.Adam(D.parameters(), lr=lr, betas=(0.5, 0.999))
+optimizer_D = torch.optim.Adam(D.parameters(), lr=1e-4, betas=(0.5, 0.999))
 
 
 # In[ ]:
