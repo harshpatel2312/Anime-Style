@@ -3,7 +3,8 @@
 *.idea/
 
 # Dataset
-data/
+data/anime/colorgram/
+data/anime/val/
 
 *.ipynb_checkpoints/
 *__pycache__/
