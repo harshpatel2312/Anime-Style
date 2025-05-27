@@ -7,7 +7,7 @@ def get_dataloader(anime_train, real_train):
     real_train_dataset = AnimeStyleDataset(real_train)
 
     # Create DataLoaders
-    anime_train_loader = DataLoader(anime_train_dataset, batch_size = 4, shuffle = True, num_workers = 2)
-    real_train_loader = DataLoader(real_train_dataset, batch_size = 4, shuffle = True, num_workers = 2)
+    anime_train_loader = DataLoader(anime_train_dataset, batch_size = 8, shuffle = True, num_workers = 2)
+    real_train_loader = DataLoader(real_train_dataset, batch_size = 8, shuffle = True, num_workers = 2)
 
     return anime_train_loader, real_train_loader
