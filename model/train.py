@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
@@ -14,58 +8,30 @@ from dataloader import get_dataloader
 from itertools import cycle
 import time
 
-
-# In[3]:
-
-
 # ========== CONFIG ==========
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 epochs = 2
 lr = 2e-4
 log_interval = 10 # For debugging
 
-
-# In[5]:
-
-
 # Paths to data folders
 anime_train = "../data/anime/train/"
 real_train = "../data/real/train/"
 
-
-# In[7]:
-
-
 # ========== DATALOADERS ==========
 anime_train_loader, real_train_loader = get_dataloader(anime_train, real_train)
-
-
-# In[9]:
-
 
 # ========== MODELS ==========
 G = Generator().to(device)
 D = Discriminator().to(device)
 
-
-# In[11]:
-
-
 # ========== LOSS FUNCTIONS ==========
 criterion_gan = GANLoss(use_mse = True).to(device) # Adversarial Loss
 criterion_l1 = nn.L1Loss().to(device)
 
-
-# In[13]:
-
-
 # ========== OPTIMIZERS ==========
 optimizer_G = torch.optim.Adam(G.parameters(), lr=lr, betas=(0.5, 0.999))
 optimizer_D = torch.optim.Adam(D.parameters(), lr=1e-4, betas=(0.5, 0.999))
-
-
-# In[ ]:
-
 
 # ========== TRAINING ==========
 for epoch in range(1, epochs + 1):
@@ -127,44 +93,12 @@ for epoch in range(1, epochs + 1):
     print(f"→ Epoch {epoch} Done | Time: {time.time() - start_time:.1f}s | "
           f"Avg Loss_D: {epoch_loss_D / num_batches:.4f} | "
           f"Avg Loss_G: {epoch_loss_G / num_batches:.4f}")
-        
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[1]:
 
 
 # from dataloader import get_dataloader
-
-
-# In[3]:
-
-
 # anime_train_loader, real_train_loader = get_dataloader(anime_train, real_train)
 
-
-# In[10]:
-
-
 # from torchvision.transforms.functional import to_pil_image
-
 # batch = next(iter(anime_train_loader))
 # image_tensor = batch[0]
 # image_tensor = (image_tensor + 1) / 2
