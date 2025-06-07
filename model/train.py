@@ -7,6 +7,7 @@ from losses import GANLoss
 from dataloader import get_dataloader
 from itertools import cycle
 import time
+import os
 
 # ========== CONFIG ==========
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -93,6 +94,13 @@ for epoch in range(1, epochs + 1):
     print(f"→ Epoch {epoch} Done | Time: {time.time() - start_time:.1f}s | "
           f"Avg Loss_D: {epoch_loss_D / num_batches:.4f} | "
           f"Avg Loss_G: {epoch_loss_G / num_batches:.4f}")
+    
+    # === Save checkpoint every 5 epochs ===
+    if epoch % 2 == 0:
+        save_dir = f"checkpoints/epoch_{epoch}"
+        os.makedirs(save_dir, exist_ok=True)
+        torch.save(G.state_dict(), os.path.join(save_dir, "generator.pth"))
+        torch.save(D.state_dict(), os.path.join(save_dir, "discriminator.pth"))
 
 
 # from dataloader import get_dataloader
