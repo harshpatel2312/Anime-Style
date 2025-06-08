@@ -11,3 +11,5 @@ data/anime/val/
 
 # Virtual environment
 venv/
+
+model/checkpoints/
