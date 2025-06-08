@@ -88,6 +88,13 @@ for epoch in range(1, epochs + 1):
         if (i + 1) % log_interval == 0:
             print(f"[Epoch {epoch}/{epochs}] [Batch {i+1}] "
                   f"Loss_D: {loss_D.item():.4f} | Loss_G: {loss_G.item():.4f}")
+        
+        if (i + 1) % 100 == 0:
+            save_dir = f"checkpoints/epoch_{epoch}_batch_{i + 1}"
+            os.makedirs(save_dir, exist_ok=True)
+            torch.save(G.state_dict(), os.path.join(save_dir, "generator.pth"))
+            torch.save(D.state_dict(), os.path.join(save_dir, "discriminator.pth"))
+            print(f"Saved checkpoint at Epoch {epoch}, Batch {i + 1}")
 
     # === Epoch Summary ===
     num_batches = len(anime_train_loader)
