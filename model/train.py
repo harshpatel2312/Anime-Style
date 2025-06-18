@@ -17,8 +17,9 @@ lr = 2e-4
 log_interval = 10
 
 # Paths
-anime_train = "anime/train"
-real_train = "real/train"
+data_root = "/content/drive/MyDrive/Colab Notebooks/Anime-Style/data"
+anime_train = f"{data_root}/anime/train"
+real_train = f"{data_root}/real/train"
 
 # ========= DATA ============
 anime_train_loader, real_train_loader = get_dataloader(anime_train, real_train)
