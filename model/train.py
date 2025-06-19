@@ -114,7 +114,7 @@ try:
 
             #### SAVE CHECKPOINT EVERY 100 BATCHES ####
             if (i + 1) % 100 == 0:
-                save_dir = os.path.join(checkpoint_dir, f"checkpoints/epoch_{epoch}_batch_{i + 1}")
+                save_dir = os.path.join(checkpoint_dir, f"epoch_{epoch}_batch_{i + 1}")
                 os.makedirs(save_dir, exist_ok=True)
                 torch.save({
                     'epoch': epoch,
@@ -133,7 +133,7 @@ try:
 
 except KeyboardInterrupt:
     print("Training interrupted — saving final checkpoint...")
-    save_dir = os.path.join(checkpoint_dir, f"checkpoints/epoch_{epoch}_batch_{i + 1}_INTERRUPTED")
+    save_dir = os.path.join(checkpoint_dir, f"epoch_{epoch}_batch_{i + 1}_INTERRUPTED")
     os.makedirs(save_dir, exist_ok=True)
     torch.save({
         'epoch': epoch,
