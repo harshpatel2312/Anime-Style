@@ -1,4 +1,4 @@
-from dataset import AnimeStyleDataset
+from config import AnimeStyleDataset
 from torch.utils.data import DataLoader
 
 def get_dataloader(anime_train, real_train):
