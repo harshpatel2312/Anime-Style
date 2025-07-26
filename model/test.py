@@ -8,13 +8,13 @@ from torchvision.transforms.functional import to_pil_image
 G = Generator(input_nc = 3, output_nc = 3, ngf = 64, n_blocks = 6)
 
 # Load weights
-checkpoint_path = "checkpoints/epoch_1_batch_400/generator.pth"
+checkpoint_path = "/content/drive/MyDrive/Colab Notebooks/Anime-Style/checkpoints/epoch_0_batch_1000/checkpoint.pth"
 G.load_state_dict(torch.load(checkpoint_path, map_location=torch.device("cuda" if torch.cuda.is_available() else "cpu")))
 G.eval()
 G.to("cuda" if torch.cuda.is_available() else "cpu")
 
 # Load and preprocess the test image
-img = Image.open(r"C:\Users\harsh\Downloads\pexels-olly-733872.jpg")
+img = Image.open("/content/drive/MyDrive/Colab Notebooks/Anime-Style/Anime-Style/Test-Pics/pexels-olly-733872.jpg")
 
 # Preprocessing image
 transform = transforms.Compose([
