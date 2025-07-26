@@ -10,7 +10,7 @@ G = Generator(input_nc = 3, output_nc = 3, ngf = 64, n_blocks = 6)
 # Load weights
 checkpoint_path = "/content/drive/MyDrive/Colab Notebooks/Anime-Style/checkpoints/epoch_0_batch_1000/checkpoint.pth"
 checkpoint = torch.load(checkpoint_path, map_location=torch.device("cuda" if torch.cuda.is_available() else "cpu"))
-G.laod_state_dict(checkpoint['G_state_dict'])
+G.load_state_dict(checkpoint['G_state_dict'])
 G.eval()
 G.to("cuda" if torch.cuda.is_available() else "cpu")
 
