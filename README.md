@@ -1,4 +1,4 @@
-# Anime-Style GAN
+# Anime-Style GAN 🎨
 
 This project explores **image-to-image translation** for converting real-world photos into anime-style images using a **Generative Adversarial Network (GAN)**.  
 It is inspired by architectures like **CycleGAN**, using a ResNet-based Generator and PatchGAN Discriminator.
