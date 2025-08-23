@@ -9,7 +9,7 @@ import os
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # --- paths ---
-checkpoint_path = "/content/drive/MyDrive/Colab Notebooks/Anime-Style/checkpoints/epoch_5_batch_500/checkpoint.pth"
+checkpoint_path = "/content/drive/MyDrive/Colab Notebooks/Anime-Style/checkpoints/epoch_4_batch_1500/checkpoint.pth"
 test_image_path = "/content/drive/MyDrive/Colab Notebooks/Anime-Style/Test-Pics/pexels-olly-733872.jpg"
 out_dir = "/content/drive/MyDrive/Colab Notebooks/Anime-Style/Outputs"
 os.makedirs(out_dir, exist_ok=True)
